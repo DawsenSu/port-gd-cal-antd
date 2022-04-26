@@ -1,4 +1,4 @@
-import "../styles/globals.css";
+import "@styles/globals.css";
 import type { AppProps } from "next/app";
 import { Layout, Menu, MenuProps, Typography } from "antd";
 import {
@@ -6,82 +6,103 @@ import {
   LaptopOutlined,
   NotificationOutlined,
   MailOutlined,
+  HomeFilled,
 } from "@ant-design/icons";
-import Link from "next/link";
+import { useRouter } from "next/router";
 import { appWithTranslation } from "next-i18next";
 import React, { Children } from "react";
-import SubMenu from "antd/lib/menu/SubMenu";
-import { title } from "process";
 
 const { Header, Content, Footer, Sider } = Layout;
 
-// todo tobe modified acoording to final design
-const siderItems: MenuProps["items"] = [
-  {
-    key: "1",
-    icon: <UserOutlined />,
-    label: "船型数据",
-  },
-  {
-    key: "2",
-    icon: <LaptopOutlined />,
-    label: "水文条件",
-  },
-  {
-    key: "3",
-    icon: <MailOutlined />,
-    label: "计算表格",
-    children: [
-      {
-        type: "group",
-        label: "Group 1",
-        children: [
-          {
-            key: "subgroup1_item1",
-            label: "label1",
-          },
-          {
-            key: "subgroup1_item2",
-            label: "label2",
-          },
-        ],
-      },
-      {
-        type: "group",
-        label: "Group 2",
-        children: [
-          {
-            key: "subgroup2_item3",
-            label: "label3",
-          },
-          {
-            key: "subgroup2_item4",
-            label: "label4",
-          },
-        ],
-      },
-    ],
-  },
-];
-
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+
+  const headerItems: MenuProps["items"] = [
+    {
+      key: "home",
+      icon: <HomeFilled />,
+      label: "主页",
+      onClick: () => router.push("/"),
+    },
+    {
+      key: "register",
+      icon: <UserOutlined />,
+      label: "注册",
+    },
+  ];
+
+  // todo tobe modified acoording to final design
+  const siderItems: MenuProps["items"] = [
+    {
+      key: "1",
+      icon: <UserOutlined />,
+      label: "船型数据",
+    },
+    {
+      key: "2",
+      icon: <LaptopOutlined />,
+      label: "水文条件",
+    },
+    {
+      key: "3",
+      icon: <MailOutlined />,
+      label: "计算表格",
+      children: [
+        {
+          type: "group",
+          label: "Group 1",
+          children: [
+            {
+              key: "subgroup1_item1",
+              label: "label1",
+            },
+            {
+              key: "subgroup1_item2",
+              label: "label2",
+            },
+          ],
+        },
+        {
+          type: "group",
+          label: "Group 2",
+          children: [
+            {
+              key: "subgroup2_item3",
+              label: "label3",
+            },
+            {
+              key: "subgroup2_item4",
+              label: "label4",
+            },
+          ],
+        },
+      ],
+    },
+  ];
+
   return (
     <Layout>
-      <Header>
+      <Header style={{ padding: "0px" }}>
         <div className="logo" />
+        <Typography.Title
+          level={3}
+          style={{
+            float: "left",
+            color: "white",
+            lineHeight: "inherit",
+            margin: "0",
+            padding: "0",
+          }}
+        >
+          海港工程总图计算
+        </Typography.Title>
         <Menu
           theme="dark"
           mode="horizontal"
           selectable={false}
-          style={{ display: "flex" }}
-        >
-          <Menu.Item key="home">
-            <Link href="/">
-              <a>主页 </a>
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="register">注册</Menu.Item>
-        </Menu>
+          style={{ float: "right" }}
+          items={headerItems}
+        ></Menu>
       </Header>
       <Layout>
         <Sider width={200} className="site-layout-background">
