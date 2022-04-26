@@ -1,0 +1,8 @@
+{
+  "h1": "简单的组件",
+  "change-locale": "改变语言",
+  "to-second-page": "跳转到第二页",
+  "error-with-status": "错误，状态码：",
+  "error-without-status": "错误，无状态码",
+  "title": "标题"
+}

@@ -34,6 +34,9 @@
       "@sheets/*": [
         "pages/sheets/*"
       ],
+      "@public/*": [
+        "public/*"
+      ],
     },
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

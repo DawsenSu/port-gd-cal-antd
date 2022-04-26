@@ -1,11 +1,14 @@
 // /** @type {import('next').NextConfig} */
+
 // const nextConfig = {
 //   reactStrictMode: true,
+//   i18n
 // }
 
 // module.exports = nextConfig
 // next.config.js
 const withAntdLess = require("next-plugin-antd-less");
+const { i18n } = require("./next-i18next.config");
 
 module.exports = withAntdLess({
   lessVarsFilePath: './styles/antd.less', // optional 
@@ -22,14 +25,13 @@ module.exports = withAntdLess({
   //     return "whatever_random_class_name";
   //   },
   // },
-
   // for Next.js ONLY
   nextjs: {
     localIdentNameFollowDev: true, // default false, for easy to debug on PROD mode
   },
 
   // Other Config Here...
-
+  i18n,
   webpack (config) {
     return config;
   },
@@ -39,3 +41,8 @@ module.exports = withAntdLess({
   //   webpack5: true,
   // },
 });
+
+// module.exports = {
+//   reactStrictMode: true,
+//   i18n,
+// }
