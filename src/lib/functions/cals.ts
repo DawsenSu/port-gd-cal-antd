@@ -1,5 +1,14 @@
 const g = 9.81;
-
+/**
+ * #### Version
+ * since: V1.0.0
+ * Resloves equation using Newton methods
+ * @param func the function to be solved
+ * @param x0 lower bound
+ * @param x1 higher bound
+ * @param [eps] tolerance
+ * @returns equation solution
+ */
 export function resloveEquation(
   func: (x: number) => number,
   x0: number,
@@ -13,7 +22,17 @@ export function resloveEquation(
     return resloveEquation(func, x1, x2, eps);
   }
 }
-
+/**
+ * #### Description
+ *
+ * #### Version
+ * since: V1.0.0
+ * Cals wave length function
+ * @param period wave periond in seconds
+ * @param waterdepth water depth in meters
+ * @param wavelength wave length in meters
+ * @returns wave length func the function to be solved
+ */
 function calWaveLengthFunc(
   period: number,
   waterdepth: number,
@@ -26,6 +45,16 @@ function calWaveLengthFunc(
   );
 }
 
+/**
+ * #### Version
+ * since: V1.0.
+ *
+ * calculate exceed wave height
+ * @param waveHeight wave height in meters
+ * @param waveLength wave length in meters
+ * @param waterDepth water depth in meters
+ * @returns exceed wave height
+ */
 export function calExceedWaveHeight(
   waveHeight: number,
   waveLength: number,
@@ -38,6 +67,24 @@ export function calExceedWaveHeight(
   );
 }
 
+/**
+ * #### Description
+ *
+ * #### Version
+ * since: V1.0.0
+ * #### Example
+ *
+ * #### Links
+ *
+ *
+ * calculate max wave height
+ * @param maxH max wave height of regular wave in meters
+ * @param L wave length in meters
+ * @param B interval between piles in meters
+ * @param D pile diameter in meters
+ * @param sigta coefficient
+ * @returns max wave height
+ */
 export function calMaxWaveHeight(
   maxH: number,
   L: number,
@@ -60,6 +107,14 @@ export function calMaxWaveHeight(
   );
 }
 
+/**
+ * #### Version
+ * since: V1.0.0
+ * Cals wave length
+ * @param period wave period in seconds
+ * @param waterdepth water depth in meters
+ * @returns wave length in meters
+ */
 export default function calWaveLength(
   period: number,
   waterdepth: number
