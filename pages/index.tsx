@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "@styles/Home.module.css";
 import Link from "next/link";
+import { Typography } from "antd";
 
 const routes = [
   {
@@ -41,7 +42,7 @@ const Home: NextPage = () => {
       </Head>
       <div className={styles.container}>
         <div className={styles.title}>
-          <div className={styles.description}>海港工程总图计算</div>
+          <Typography.Title level={2}>模块</Typography.Title>
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
           {routes.map((route) => {

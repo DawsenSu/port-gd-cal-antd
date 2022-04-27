@@ -11,6 +11,7 @@ import {
 import { useRouter } from "next/router";
 import { appWithTranslation } from "next-i18next";
 import React, { Children } from "react";
+import { networkInterfaces } from "os";
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -81,7 +82,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   ];
 
   return (
-    <Layout>
+    <Layout style={{ height: "100vh" }}>
       <Header style={{ padding: "0px" }}>
         <div className="logo" />
         <Typography.Title
@@ -114,11 +115,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           ></Menu>
         </Sider>
         <Layout>
-          <Content style={{ padding: "0 50px" }}>
+          <Content style={{ padding: "10px 10px 0px 10px" }}>
             <div
               style={{
                 padding: "24px",
-                minHeight: "280px",
+                height: "100%",
                 background: "#fff",
               }}
             >
@@ -128,8 +129,16 @@ function MyApp({ Component, pageProps }: AppProps) {
         </Layout>
       </Layout>
 
-      <Footer style={{ textAlign: "center" }}>
-        CCCC Water Transportation Consultant Co. LTD ©2022 Created by Dawsen
+      <Footer
+        style={{
+          textAlign: "center",
+          height: "40px",
+          margin: "0",
+          padding: "8px",
+        }}
+      >
+        CCCC Water Transportation Consultant Co. LTD ©{new Date().getFullYear()}{" "}
+        Created by Dawsen
       </Footer>
     </Layout>
   );
