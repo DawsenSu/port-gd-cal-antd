@@ -73,7 +73,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             },
             {
               key: "subgroup2_item4",
-              label: "label4",
+              label: "label24",
             },
           ],
         },
