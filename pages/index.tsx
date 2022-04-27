@@ -1,9 +1,10 @@
 import type { NextPage } from "next";
+import { Typography } from "antd";
 import Head from "next/head";
 import Image from "next/image";
-import styles from "@styles/Home.module.css";
 import Link from "next/link";
-import { Typography } from "antd";
+
+import styles from "@styles/Home.module.css";
 
 const routes = [
   {

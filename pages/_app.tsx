@@ -1,18 +1,20 @@
 import "@styles/globals.css";
-import type { AppProps } from "next/app";
-import { Layout, Menu, MenuProps, Typography } from "antd";
-import {
-  UserOutlined,
-  LaptopOutlined,
-  NotificationOutlined,
-  MailOutlined,
-  HomeFilled,
-} from "@ant-design/icons";
-import { useRouter } from "next/router";
-import { appWithTranslation } from "next-i18next";
-import React, { Children } from "react";
-import { networkInterfaces } from "os";
 
+import { Layout, Menu, MenuProps, Typography } from "antd";
+import { appWithTranslation } from "next-i18next";
+import { useRouter } from "next/router";
+import { networkInterfaces } from "os";
+import React, { Children } from "react";
+
+import {
+  HomeFilled,
+  LaptopOutlined,
+  MailOutlined,
+  NotificationOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
+
+import type { AppProps } from "next/app";
 const { Header, Content, Footer, Sider } = Layout;
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -82,64 +84,71 @@ function MyApp({ Component, pageProps }: AppProps) {
   ];
 
   return (
-    <Layout style={{ minHeight: "100vh" }}>
-      <Header style={{ padding: "0px" }}>
-        <div className="logo" />
-        <Typography.Title
-          level={3}
-          style={{
-            float: "left",
-            color: "white",
-            lineHeight: "inherit",
-            margin: "0",
-            padding: "0",
-          }}
-        >
-          海港工程总图计算
-        </Typography.Title>
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          selectable={false}
-          style={{ float: "right" }}
-          items={headerItems}
-        ></Menu>
-      </Header>
-      <Layout>
-        <Sider width={200} className="site-layout-background">
-          <Menu
-            theme="dark"
-            style={{ height: "100%", borderRight: 0 }}
-            mode="inline"
-            items={siderItems}
-          ></Menu>
-        </Sider>
-        <Layout>
-          <Content style={{ padding: "10px 10px 0px 10px" }}>
-            <div
-              style={{
-                padding: "24px",
-                height: "100%",
-                background: "#fff",
-              }}
-            >
-              <Component {...pageProps} />
-            </div>
-          </Content>
-        </Layout>
-      </Layout>
-
-      <Footer
+    <Layout>
+      <Sider
         style={{
-          textAlign: "center",
-          height: "40px",
-          margin: "0",
-          padding: "8px",
+          overflow: "auto",
+          height: "100vh",
+          position: "fixed",
+          left: 0,
+          top: 0,
+          bottom: 0,
         }}
       >
-        CCCC Water Transportation Consultant Co. LTD ©2022 Created by Dawsen X
-        Sannyii
-      </Footer>
+        <div className="logo" />
+        <Menu
+          theme="dark"
+          style={{ height: "100%", borderRight: 0 }}
+          mode="inline"
+          items={siderItems}
+        ></Menu>
+      </Sider>
+      <Layout style={{ minHeight: "100vh", marginLeft: 200 }}>
+        <Header style={{ padding: "0px" }}>
+          <Typography.Title
+            level={3}
+            style={{
+              float: "left",
+              color: "white",
+              lineHeight: "inherit",
+              margin: "0",
+              padding: "0",
+            }}
+          >
+            海港工程总图计算
+          </Typography.Title>
+          <Menu
+            theme="dark"
+            mode="horizontal"
+            selectable={false}
+            style={{ float: "right" }}
+            items={headerItems}
+          ></Menu>
+        </Header>
+
+        <Content style={{ padding: "10px 10px 0px 10px" }}>
+          <div
+            style={{
+              padding: "24px",
+              height: "100%",
+              background: "#fff",
+            }}
+          >
+            <Component {...pageProps} />
+          </div>
+        </Content>
+        <Footer
+          style={{
+            textAlign: "center",
+            height: "40px",
+            margin: "0",
+            padding: "8px",
+          }}
+        >
+          CCCC Water Transportation Consultant Co. LTD ©2022 Created by Dawsen X
+          Sannyii
+        </Footer>
+      </Layout>
     </Layout>
   );
 }

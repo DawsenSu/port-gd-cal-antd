@@ -1,12 +1,8 @@
-import React from "react";
-import { Form, Input, InputNumber, Button, Radio, Popover, Drawer } from "antd";
-import calWaveLength, {
-  calExceedWaveHeight,
-  calMaxWaveHeight,
-} from "@lib/functions/cals";
-import { useState } from "react";
+import calWaveLength, { calExceedWaveHeight } from "@lib/functions/cals";
+import { Button, Drawer, Form, Input, InputNumber, Popover } from "antd";
 import { MathJax, MathJaxContext } from "better-react-mathjax";
 import Head from "next/head";
+import React, { useState } from "react";
 
 interface Inputs {
   designWaterLevel: number;

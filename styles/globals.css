@@ -15,6 +15,16 @@ a {
   box-sizing: border-box;
 }
 
+
+
+.layout-sider {
+  height: '100vh';
+  position: 'fixed';
+  left: 0;
+  top: 0;
+  bottom: 0;
+}
+
 .logo {
   float: left;
   width: 120px;
