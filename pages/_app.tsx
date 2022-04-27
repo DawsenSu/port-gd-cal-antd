@@ -82,7 +82,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   ];
 
   return (
-    <Layout style={{ height: "100vh" }}>
+    <Layout style={{ minHeight: "100vh" }}>
       <Header style={{ padding: "0px" }}>
         <div className="logo" />
         <Typography.Title
