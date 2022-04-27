@@ -137,8 +137,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           padding: "8px",
         }}
       >
-        CCCC Water Transportation Consultant Co. LTD ©{new Date().getFullYear()}{" "}
-        Created by Dawsen
+        CCCC Water Transportation Consultant Co. LTD ©2022 Created by Dawsen X
+        Sannyii
       </Footer>
     </Layout>
   );
