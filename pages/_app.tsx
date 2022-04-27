@@ -129,7 +129,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Layout>
 
       <Footer style={{ textAlign: "center" }}>
-        CCCC Water Transportation Consultant Co. LTD ©2022 Created by Dawsen
+        CCCC Water Transportation Consultant Co. LTD ©2022 Created by Dawsen X Sannyii
       </Footer>
     </Layout>
   );
