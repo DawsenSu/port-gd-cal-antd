@@ -1,29 +1,53 @@
 import {
   HomeFilled,
+  HomeOutlined,
   LaptopOutlined,
+  LoginOutlined,
+  LogoutOutlined,
   MailOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { Layout, Menu, MenuProps, Typography } from "antd";
+import { Avatar, Layout, Menu, MenuProps, Typography } from "antd";
 import { useRouter } from "next/router";
 import React from "react";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const { Header, Content, Footer, Sider } = Layout;
 
 const MainNav = (props: { mainPage: React.ReactNode }) => {
   const router = useRouter();
+  const { data: session, status } = useSession();
 
   const headerItems: MenuProps["items"] = [
     {
       key: "home",
-      icon: <HomeFilled />,
+      icon: <HomeOutlined />,
       label: "主页",
       onClick: () => router.push("/"),
+    },
+    {
+      key: "login",
+      icon: <LoginOutlined />,
+      label: "登录",
+      style: { display: session ? "none" : "block" },
+      onClick: () => {
+        signIn();
+      },
+    },
+    {
+      key: "logout",
+      icon: <LogoutOutlined />,
+      label: "登出",
+      style: { display: session?.user ? "block" : "none" },
+      onClick: () => {
+        signOut();
+      },
     },
     {
       key: "register",
       icon: <UserOutlined />,
       label: "注册",
+      style: { display: session ? "none" : "block" },
     },
   ];
 
@@ -117,6 +141,17 @@ const MainNav = (props: { mainPage: React.ReactNode }) => {
           >
             海港工程总图计算
           </Typography.Title>
+          <Avatar
+            size={44}
+            style={{
+              color: "#f56a00",
+              backgroundColor: "#fde3cf",
+              float: "right",
+              margin: "10px 20px",
+            }}
+          >
+            U
+          </Avatar>
           <Menu
             theme="dark"
             mode="horizontal"

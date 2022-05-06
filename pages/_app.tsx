@@ -1,14 +1,16 @@
-import "@styles/globals.css";
 import MainNav from "@components/layout/MainNav";
-
+import "@styles/globals.css";
 import { appWithTranslation } from "next-i18next";
-
-import React from "react";
-
 import type { AppProps } from "next/app";
+import React from "react";
+import { SessionProvider } from "next-auth/react";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <MainNav mainPage={<Component {...pageProps} />} />;
+  return (
+    <SessionProvider session={pageProps.session}>
+      <MainNav mainPage={<Component {...pageProps} />} />
+    </SessionProvider>
+  );
 }
 
 export default appWithTranslation(MyApp);
