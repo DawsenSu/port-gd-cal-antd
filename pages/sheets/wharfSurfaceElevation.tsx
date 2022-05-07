@@ -1,12 +1,22 @@
 import {
   CalculatorTwoTone,
+  CheckCircleTwoTone,
   EditOutlined,
+  HeartTwoTone,
   HomeOutlined,
   LoadingOutlined,
   LogoutOutlined,
+  QuestionCircleFilled,
+  QuestionCircleOutlined,
+  QuestionCircleTwoTone,
   SettingFilled,
   SmileOutlined,
+  SmileTwoTone,
+  StarFilled,
+  StarOutlined,
+  StarTwoTone,
   SyncOutlined,
+  TableOutlined,
 } from "@ant-design/icons";
 import {
   Button,
@@ -20,6 +30,7 @@ import {
   Typography,
 } from "antd";
 import React from "react";
+import { MathJax, MathJaxContext } from "better-react-mathjax";
 
 const { Title, Text } = Typography;
 const { Meta } = Card;
@@ -269,7 +280,7 @@ const FormClass = {
 const wharfSurfaceElevation = () => {
   return (
     <div>
-      <Row gutter={16}>
+      {/* <Row gutter={16}>
         <Col span={24}>
           <Space>
             <HomeOutlined />
@@ -279,26 +290,43 @@ const wharfSurfaceElevation = () => {
             <SmileOutlined rotate={180} />
             <LoadingOutlined />
           </Space>
+          <MathJaxContext>
+            <h2>Basic MathJax example with Latex</h2>
+            <MathJax>{"\\(\\frac{10}{4x} \\approx 2^{12}\\)"}</MathJax>
+          </MathJaxContext>
         </Col>
       </Row>
       <Row>
         <Col span={24}>
           <Title>码头面高程</Title>
         </Col>
-      </Row>
+      </Row> */}
       <Row>
         <Col span={24}>
           <Title level={2}>
-            <CalculatorTwoTone />
-            码头前沿设计高程计算表
+            {/* <CalculatorTwoTone /> */}
+            6.码头前沿顶高程
           </Title>
         </Col>
       </Row>
       <Row gutter={16}>
         <Col span={12}>
-          <Title level={3} type="warning">
+          <Title level={3} type="success">
             <EditOutlined /> 输入条件：
           </Title>
+        </Col>
+        <Col span={12}>
+          <Title level={3} type="success">
+            <TableOutlined /> 码头前沿顶高程计算表：
+            <QuestionCircleTwoTone spin={true} />
+            <QuestionCircleFilled spin={true} />
+            <QuestionCircleOutlined spin={true} style={{ color: '#0f0f0f', cursor: 'pointer' }} />
+          </Title>
+        </Col>
+      </Row>
+      <Row gutter={16}>
+        <Col span={12}>
+
           <Form
             name="basic"
             labelCol={{ span: 8 }}
@@ -345,39 +373,7 @@ const wharfSurfaceElevation = () => {
               style={{ marginBottom: "10px" }}
               // rules={[{ required: true }]}
             >
-              <Form.Item
-                name="sjsw1"
-                rules={[{ required: true }]}
-                style={{
-                  display: "inline-block",
-                  width: "calc(30% - 8px)",
-                  margin: "0 8px",
-                }}
-              >
-                <Input placeholder="受力基本标准" suffix="m" />
-              </Form.Item>
-              <Form.Item
-                name="sjsw2"
-                rules={[{ required: true }]}
-                style={{
-                  display: "inline-block",
-                  width: "calc(30% - 8px)",
-                  margin: "0 8px",
-                }}
-              >
-                <Input placeholder="上水基本标准" suffix="m" />
-              </Form.Item>
-              <Form.Item
-                name="sjsw3"
-                rules={[{ required: true }]}
-                style={{
-                  display: "inline-block",
-                  width: "calc(30% - 8px)",
-                  margin: "0 8px",
-                }}
-              >
-                <Input placeholder="上水复核标准" suffix="m" />
-              </Form.Item>
+              <Input placeholder="受力基本标准" suffix="m" />
             </Form.Item>
 
             {/* 波高h1 */}
