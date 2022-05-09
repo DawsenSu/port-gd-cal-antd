@@ -33,7 +33,7 @@ export function resloveEquation(
  * @param wavelength wave length in meters
  * @returns wave length func the function to be solved
  */
-function calWaveLengthFunc(
+export function calWaveLengthFunc(
   period: number,
   waterdepth: number,
   wavelength: number
